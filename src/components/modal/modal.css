@@ -1,17 +1,55 @@
 
 
 .modal2 {
-    width: 400px;
-    padding: 1em;
-    border: 2px solid #f0f0f0;
+    width: 280px;
+    padding: 2em;
     border-radius: 10px;
     margin: 0.20em;
-    box-shadow: .25em .25em 0 #c3c1c1;
-    height: 200px;
-    font-size: 17px;
+    height: 180px;
+    font-size: 19px;
+    text-decoration: underline;
     font-family: Poppins;
+    background-color: #ffffff;
+    color: rgb(59, 59, 59)
     
 }
 
 
+.btn-nobg {
+  color: rgb(34, 34, 34);
+  margin: 9px;
+ 
+}
+
+
+
+.btn2:hover {
+  background-color: #ca4a4adc;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.button64{
+  background-color: #7659ac; 
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  justify-items: center;
+  font-size: 16px
+ 
+}
+
+.button65{
+  background-color: #7659ac; 
+  border: none;
+  color: white;
+  padding: 5px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  justify-items: center;
+  font-size: 16px
   
+}

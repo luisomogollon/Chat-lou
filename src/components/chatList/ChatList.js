@@ -5,7 +5,6 @@ import { getUsers } from '../../services'
 import Modal from "../modal/Modal";
 import "../modal/modal.css";
 import { ChatRoomContext } from "../../context"
-
 import swal from "sweetalert";
 
 export default class ChatList extends Component {
@@ -51,21 +50,27 @@ export default class ChatList extends Component {
   handleComplaintSubmit = async (e) => {
     e.preventDefault();
     const payloadBody = {}
+
+
     for (const elem of e.target) {
       if (elem.name) {
         if (elem.name === 'file_64') {
+          const imageFile= elem.files[0];
+          if(!imageFile){
+            swal("Por favor, cargue una imagen de prueba.")
+            return;
+          }
           const imgBase = await this.getBase64(elem.files[0]);
           payloadBody[elem.name] = imgBase;
         } else {
+          if(!elem.value){
+            swal("Es necesario escribir una descripción.")
+            return;
+          }
           payloadBody[elem.name] = elem.value;
         }
         elem.value = '';
       }
-      const Swal = require('sweetalert2')
-      Swal.fire();
-
-
-
     }
     const { submitComplaint } = this.context;
     try {
@@ -76,24 +81,25 @@ export default class ChatList extends Component {
       swal("archivo demasiado grande, max 50kb")
     }
   }
+  
   render() {
     return (
       <div className="main__chatlist">
         <Modal active={this.state.active} toggle={this.toggle}>
           <form onSubmit={this.handleComplaintSubmit}>
             <div className="modal2" >
-              <span>¡Denuncia el acoso!</span>
+              <span className="btn-nobg">¡Denuncia el Acoso!</span>
+              <i className="fa fa-cog"></i>
               <br />
               <br />
               <br />
               <br />
-              <label htmlFor="description"> Descripción rapida </label>
+              <label className="btn-nobg" htmlFor="description"> Descripción Rapida </label>
               <input type="text" className="form-control" name="description" />
             </div>
-            <br />
             <label htmlFor="file_64">Incluya Captura aqui.</label>
-            <input type="file" name="file_64" />
-            <button type="submit" className="btn2">Enviar</button>
+            <input className="button64" type="file" name="file_64" />
+            <button className="button65" type="submit" >Enviar</button>
           </form>
         </Modal>
         <button onClick={this.toggle} className="btn">
@@ -102,9 +108,6 @@ export default class ChatList extends Component {
         </button>
         <div className="chatlist__heading">
           <h2>Chats</h2>
-          <button className="btn-nobg">
-            <i className="fa fa-ellipsis-h"></i>
-          </button>
         </div>
         <div className="chatList__search">
           <div className="search_wrap">

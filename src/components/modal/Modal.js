@@ -21,26 +21,28 @@ export default Modal;
 const styles = {
     wrapper: {
         position: 'absolute',
-        top: 0,
-        left: '600px',
+        top: 27,
+        left: '840px',
         width: '5px',
         height: '5px',
         display: 'flex',
         justifycontent: 'center',
         alignitems: 'center',
+        
     },
     window: {
         position: 'relative',
-        background: '#f0f0f0',
-        padding: 15,
+        background: '#fff',
+        padding: 10,
         borderRadius: 10,
         zIndex: 10,
-        minwidth: 320,
-        width: '500px',
-        height: '340px',
+        minwidth: 200,
+        width: '400px',
+        border: '10px solid',
+        color: '#cac8c8', 
+        height: '360px',
         justifycontent: 'center'
         
-
     },
     closebtn: {
         position: 'absolute',

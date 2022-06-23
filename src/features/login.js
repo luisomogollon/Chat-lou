@@ -62,7 +62,7 @@ const toRegistrationPage = () => {redirect('/register')}
             <input type="submit" className="fadeIn fourth" value="Log In" />
           </form>
           {showErrorMessage &&
-            <div className="alert alert-danger" role="alert">
+            <div className="danger" role="alert">
               Error: No se pudo logear con estas credenciales
             </div>
           }

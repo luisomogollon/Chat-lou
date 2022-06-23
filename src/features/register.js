@@ -50,11 +50,11 @@ export const CreateUser = () => {
             <input type="text" className="fadeIn second" name="lastName" placeholder="Apellido..." />
             <input type="text" className="fadeIn second" name="email" placeholder="Correo..." />
             <input type="password" className="fadeIn third" name="password" placeholder="Password" />
-            <input type="submit" className="fadeIn fourth" value="Log In" />
+            <input type="submit" className="fadeIn fourth" value="Crear" />
           </form>
           {showErrorMessage &&
-            <div className="alert alert-danger" role="alert">
-              Error: No se pudo logear con estas credenciales
+            <div className="danger" role="alert">
+              Error: No se pudo crear un usuario con estas credenciales.
             </div>
           }
         </div>
