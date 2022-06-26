@@ -4,6 +4,7 @@
   max-width: 63%;
   border: 2px solid #cac8c8;
   border-radius: 10px;
+  
 }
 
 .content__header {
@@ -85,18 +86,33 @@
 }
 
 .chat__item__content {
-  background-color: #cfcfcfc4;
+  background-color: #e0e0e0c4;
   color: #858585;
   padding: 15px;
-  border-radius: 10px 10px 0 10px;
-  max-width: 50%;
+  border-radius: 20px;
+  max-width: 100%;
   min-width: 215px;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 5px;
   letter-spacing: 0px;
-  text-align: left;
+  text-align: end;
+  
+}
+
+
+.erasebutton{
+  background-color: #c5c4c4fd;
+  width: 15px;
+  height: 15px;
+  left: 440px;
+  border-radius: 5px;
+  font-size: 10px;
+  max-width: 100%;
+  cursor: pointer;
+  border: 0px solid #cac8c8
+ 
 
 }
 
@@ -117,6 +133,7 @@
   line-height: 17px;
   letter-spacing: 0px;
   text-align: left;
+  
 
 }
 
@@ -161,17 +178,19 @@
 
 .sendNewMessage {
   background-color: #f6f6f6;
+  height: 52px;
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  border-radius: 100px;
+  border-radius:100px;
   border: 2px solid #cac8c8
+  
 }
 
 .sendNewMessage button {
-  width: 36px;
-  height: 36px;
-  background-color: #cac8c8;
+  width: 30px;
+  height: 30px;
+  background-color: #7659ac;
   border: none;
   box-shadow: none;
   outline: none;
@@ -197,15 +216,17 @@
   flex-grow: 1;
   padding: 0 15px;
   background-color: #f6f6f6;
-
-  ;
+  height: 23px;
+  font-family: Poppins;
   border: none;
   outline: none
+ 
 }
 
 #sendMsgBtn {
   background-color: #7659ac;
-  color: #fff;
+  color: #ffffff;
+  
 
 }
 
@@ -213,4 +234,5 @@
   font-size: 30px;
   font-family: Poppins;
   text-align: center;
+  
 }

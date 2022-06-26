@@ -10,7 +10,7 @@ const ChatItem = ({ msg, postedBy, chatDate, remove }) => {
     >
 
       <div className="chat__item__content">
-        <button onClick={remove}>Borrar</button>
+        <button className="erasebutton" onClick={remove}>x</button>
         <div className="chat__msg">{msg}</div>
         <br />
         <div className="chat__msg">{postedBy}</div>

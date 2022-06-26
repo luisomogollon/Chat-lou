@@ -4,8 +4,9 @@
   border:10px solid rgb(171, 171, 175);
         text-align:center;
         padding: 25px 50px;
-        height:330px;
+        height:370px;
         width:350px;
+        font-family: p;
         background-color: rgb(236, 236, 236);
         
 }
@@ -50,8 +51,9 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   text-align:center;
+  text-align:justify; 
   font-size: 16px
- 
+  
  
 }
 
@@ -83,4 +85,11 @@ color: rgb(34, 34, 34);
   top:260px;
   position: absolute;
   text-align:center;
+}
+
+.footerspam{
+  background-color: #d6d3d3;
+  font-size: 12px;
+  justify-content:space-between;
+  
 }

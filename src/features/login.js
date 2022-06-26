@@ -68,7 +68,7 @@ const toRegistrationPage = () => {redirect('/register')}
           }
         </div>
         <div id="formFooter">
-         <button onClick={toRegistrationPage} className='underlineHover' href="#">Registrate</button>
+         <button onClick={toRegistrationPage} className='buttonreg fadeIn'>Registrate</button>
          </div>
       </div>
 

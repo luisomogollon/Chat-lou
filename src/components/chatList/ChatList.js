@@ -22,7 +22,7 @@ export default class ChatList extends Component {
 
   filterUsers = () => {
     if (!this.state.searchTerm) return this.state.allChatUsers;
-    return this.state.allChatUsers.filter(user=>user.name.match(this.state.searchTerm))
+    return this.state.allChatUsers.filter(user => user.name.match(this.state.searchTerm))
   }
 
   toggle = () => {
@@ -113,6 +113,9 @@ export default class ChatList extends Component {
               <label className="btm" htmlFor="file_64">Incluya Captura aqui.</label>
               <input className="button64" type="file" name="file_64" />
               <button className="button65" type="submit" >Enviar</button>
+              <br/>
+              <br/>
+              <span className="footerspam">Tu denuncia sera procesada en poco segundos</span>
             </div>
           </form>
         </Modal>
