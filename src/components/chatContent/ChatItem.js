@@ -1,16 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class ChatItem extends Component {
-  render() {
-    return (
-      <div
-        style={{ animationDelay: `0.8s` }}
-        className={`chat__item`}
-      >
-        <div className="chat__item__content">
-          <div className="chat__msg">{this.props.msg}</div>
-        </div>
+const ChatItem = ({ msg, postedBy, chatDate, remove }) => {
+  const utcDate = new Date(chatDate).toUTCString()
+
+  return (
+    <div
+      style={{ animationDelay: `0.8s` }}
+      className={`chat__item`}
+    >
+
+      <div className="chat__item__content">
+        <button onClick={remove}>Borrar</button>
+        <div className="chat__msg">{msg}</div>
+        <br />
+        <div className="chat__msg">{postedBy}</div>
+        <div className="chat__msg">{utcDate}</div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default ChatItem;

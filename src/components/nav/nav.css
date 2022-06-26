@@ -8,7 +8,7 @@
   
 }
 .logout {
-  background:url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login-hover.png') no-repeat 5px 5px #7659ac;
+  background:no-repeat 5px 5px #7659ac;
    width: 100px;
    cursor:pointer;
    border-radius:5px;

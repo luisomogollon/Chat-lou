@@ -22,7 +22,7 @@ const styles = {
     wrapper: {
         position: 'absolute',
         top: 27,
-        left: '840px',
+        left: '770px',
         width: '5px',
         height: '5px',
         display: 'flex',
@@ -31,17 +31,7 @@ const styles = {
         
     },
     window: {
-        position: 'relative',
-        background: '#fff',
-        padding: 10,
-        borderRadius: 10,
-        zIndex: 10,
-        minwidth: 200,
-        width: '400px',
-        border: '10px solid',
-        color: '#cac8c8', 
-        height: '360px',
-        justifycontent: 'center'
+      
         
     },
     closebtn: {

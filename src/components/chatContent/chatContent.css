@@ -2,40 +2,43 @@
   flex-grow: 1;
   padding: 5px 10px;
   max-width: 63%;
-  border: 2px solid #cac8c8; 
+  border: 2px solid #cac8c8;
   border-radius: 10px;
 }
+
 .content__header {
   align-items: center;
   width: 200px;
   border-radius: 5px;
-  border: 2px solid #e4e4e4 
-   
-  
-  }
+  border: 2px solid #e4e4e4
+}
+
 .current-chatting-user {
   display: flex;
   align-items: center;
-  
+
 }
+
 .current-chatting-user p {
   margin: 0;
   font-weight: 700;
-  color:#474747
-  
+  color: #474747
 }
+
 .content__header {
   display: flex;
   height: 60px;
   justify-content: space-between;
   align-items: center;
-    
-} 
+
+}
+
 .content__body {
   max-height: calc(100vh - calc(100vh / 2));
   overflow: auto;
-   
+
 }
+
 .chat__item {
   display: flex;
   justify-content: flex-end;
@@ -45,35 +48,42 @@
   transform: scale(0);
   transform-origin: right;
   animation-name: showIn;
-  animation-duration: 0.2s; /* or: Xms */
+  animation-duration: 0.2s;
+  /* or: Xms */
   animation-iteration-count: 1;
-  animation-direction: normal; /* or: normal */
-  animation-timing-function: cubic-bezier(
-    0.88,
-    0.19,
-    0.37,
-    1.11
-  ); /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
-  animation-fill-mode: both; /* or: backwards, both, none */
-  animation-delay: 0.2s; /* or: Xms */
-  
-  
+  animation-direction: normal;
+  /* or: normal */
+  animation-timing-function: cubic-bezier(0.88,
+      0.19,
+      0.37,
+      1.11);
+  /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+  animation-fill-mode: both;
+  /* or: backwards, both, none */
+  animation-delay: 0.2s;
+  /* or: Xms */
+
+
 }
+
 @keyframes showIn {
   0% {
     transform: scale(0);
   }
+
   100% {
     transform: scale(1);
   }
 }
+
 .chat__item .avatar {
   margin-right: 0px;
   margin-left: 20px;
   background: #fff;
   padding: 1px;
-  
+
 }
+
 .chat__item__content {
   background-color: #cfcfcfc4;
   color: #858585;
@@ -85,16 +95,18 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 22px;
- letter-spacing: 0px;
- text-align: left;
+  letter-spacing: 0px;
+  text-align: left;
 
 }
+
 .chat__item__content .chat__meta {
   justify-content: space-between;
   display: flex;
   margin-top: 10px;
-  
+
 }
+
 .chat__item__content .chat__meta span {
   font-size: 14px;
   color: #858585;
@@ -105,52 +117,57 @@
   line-height: 17px;
   letter-spacing: 0px;
   text-align: left;
-  
+
 }
+
 .chat__msg {
-user-select: none;
-font-family: Poppins;
-font-style: normal;
-font-size: 15px;
-font-weight: 400;
-line-height: 22px;
-letter-spacing: 0px;
-text-align: left;
-color: #000000;
-
-
+  user-select: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #000000;
 }
 
 .chat__item.other {
   flex-direction: row-reverse;
   transform-origin: left;
-  
+
 }
+
 .chat__item.other .chat__item__content {
   background-color: #fff;
   color: #000;
   border-radius: 10px 10px 10px 0;
   max-width: 50%;
 }
+
 .chat__item.other .avatar {
   margin-right: 20px;
   margin-left: 0px;
 }
+
 .chat__item.other .chat__item__content .chat__meta span {
   color: #0a0a0a;
 }
+
 .content__footer {
   padding-top: 90px;
- 
+
 }
+
 .sendNewMessage {
-  background-color:#f6f6f6;
+  background-color: #f6f6f6;
   display: flex;
   justify-content: space-between;
   padding: 10px;
   border-radius: 100px;
-  border: 2px solid #cac8c8   
+  border: 2px solid #cac8c8
 }
+
 .sendNewMessage button {
   width: 36px;
   height: 36px;
@@ -166,32 +183,34 @@ color: #000000;
   line-height: 36px;
   transition: all 0.3s cubic-bezier(0.88, 0.19, 0.37, 1.11);
 }
+
 .sendNewMessage button:hover {
   transform: scale(1.2);
-  
+
 }
+
 .sendNewMessage button i {
   display: block;
 }
+
 .sendNewMessage input {
   flex-grow: 1;
   padding: 0 15px;
-  background-color:  #f6f6f6;
-  
+  background-color: #f6f6f6;
+
   ;
   border: none;
   outline: none
-
-  
 }
+
 #sendMsgBtn {
   background-color: #7659ac;
   color: #fff;
-  
+
 }
 
-.textchat{
+.placeholder_chat {
   font-size: 30px;
   font-family: Poppins;
-  text-align: center;  
+  text-align: center;
 }

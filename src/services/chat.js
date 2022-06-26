@@ -2,8 +2,6 @@ import axios from "../lib/axios";
 
 const CONSUMER_TO_CONSUMER= "consumer-to-consumer"
 
-
-// PROMISES
 export const createChatRoom = (userIds) => {
     return axios.post('/room/initiate',{userIds, type: CONSUMER_TO_CONSUMER });
 };
@@ -30,3 +28,11 @@ export const sendMessage = (chatRoomId,messageText) => {
 export const complaint = (body) => {
     return axios.post("/complaints",body);
 };
+
+export const deleteMsg = (targetId) => {
+    return axios.delete(`/delete/message/${targetId}`);
+}
+
+export const deleteRoom = (targetRoomId) => {
+    return axios.delete(`/delete/room/${targetRoomId}`);
+}

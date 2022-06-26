@@ -1,10 +1,6 @@
 import React from 'react';
 import { createContext, useState } from 'react';
-import { complaint, createChatRoom, getChat, sendMessage } from '../services/chat';
-// import { io } from "socket.io-client";
-import { baseURL } from '../lib/axios';
-
-const socketURL = `${baseURL}/socket.io/`
+import { complaint, createChatRoom, getChat, sendMessage, deleteMsg, deleteRoom } from '../services/chat';
 
 export const ChatRoomContext = createContext();
 
@@ -17,22 +13,28 @@ const initializeChatRoom = {
 
 export const ChatRoomProvider = ({ children }) => {
     const [chatRoom, setChatRoom] = useState(initializeChatRoom);
+
     const getChatMessages = async (chatRoomId) => {
         try {
             const response = await getChat(chatRoomId);
             const { conversation } = response;
             const chatItems = conversation.map((chatItem, index) => {
-                const { message } = chatItem;
+                const { _id, message, postedByUser, createdAt } = chatItem;
+                const { firstName, lastName } = postedByUser[0];
                 return {
+                    id: _id,
                     key: index,
                     msg: message.messageText,
+                    postedBy: `${firstName} ${lastName}`,
+                    createdAt
                 }
             })
             return chatItems;
         } catch (error) {
             throw new Error(error);
         }
-    }
+    };
+
     const create = async (userIds, profileData) => {
         try {
             const response = await createChatRoom(userIds);
@@ -42,39 +44,65 @@ export const ChatRoomProvider = ({ children }) => {
             throw new Error(error);
         }
     };
+
     const initChatRoom = async (userIds, profileData) => {
         try {
             const chatRoomCredential = await create(userIds, profileData);
             const chatItems = await getChatMessages(chatRoomCredential.chatRoomId);
-            // const socket = io(`${socketURL}?roomId=${chatRoomCredential.chatRoomId}`)
-            setChatRoom({ ...chatRoomCredential, chatItems})
+            setChatRoom({ ...chatRoomCredential, chatItems })
         } catch (error) {
             throw new Error(error);
         }
-    }
+    };
+
     const postChatMessage = async (chatRoomId, message) => {
         try {
             await sendMessage(chatRoomId, message);
+            const getNewerMessages = await getChatMessages(chatRoomId);
+            setChatRoom(prev => ({ ...prev, chatItems: getNewerMessages }))
             return
-
         } catch (error) {
             throw new Error(error);
         }
-    }
+    };
 
-    const submitComplaint = async (complaintBody) =>{
+    const submitComplaint = async (complaintBody) => {
         try {
             await complaint(complaintBody);
             return;
         } catch (error) {
             throw new Error(error)
         }
+    };
+
+    const deleteChat = async () => {
+        const chatRoomId = chatRoom.chatRoomId;
+        try {
+            await deleteRoom(chatRoomId);
+            setChatRoom(initializeChatRoom);
+            return;
+        } catch (error) {
+            throw new Error(error);
+        }
     }
 
-    /*const emitMessage = (message) =>{
-        if(chatRoom.socket){
-            chatRoom.socket.emit("chat message", message)
-        }
-    }*/
-    return <ChatRoomContext.Provider value={{ chatRoom, initChatRoom, create, postChatMessage, submitComplaint }}>{children}</ChatRoomContext.Provider>;
+    const deleteMessage = async (targetId) => {
+        await deleteMsg(targetId);
+        const getUpdatedChat = await getChatMessages(chatRoom.chatRoomId);
+        setChatRoom(prev => ({ ...prev, chatItems: getUpdatedChat }))
+        return
+    }
+
+    return <ChatRoomContext.Provider
+        value={{
+            chatRoom,
+            initChatRoom,
+            create,
+            postChatMessage,
+            submitComplaint,
+            deleteChat,
+            deleteMessage
+        }}>
+        {children}
+    </ChatRoomContext.Provider>;
 }
